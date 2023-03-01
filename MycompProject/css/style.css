@@ -4,9 +4,15 @@
     padding: 0;
     list-style-type: none;
     text-decoration: none;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Shantell Sans', cursive;
     /* #3166B0 */
 }
+
+a {
+    color: inherit;
+    /*changed the link tag font color to inherit to prevent it being on the visited state or the original link color*/
+}
+
 .header-cont{
     width: 100%;
 }
@@ -21,6 +27,32 @@
 }
 #menu-icon{
     margin-right: 3%;
+    /* flex: 1; */
+}
+
+ul#menu-icon li a{
+    position: relative;
+}
+
+ul#menu-icon li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 3px;
+    bottom: 5px;
+    left: 0;
+    background-color: #3166B0;
+    transform-origin: bottom center;
+    transition: transform 0.5s ease-out;
+}
+
+ul#menu-icon li a:hover::after{
+    transform: scaleX(1);
+    transform-origin: bottom center;
+}
+ul#menu-icon li a.btn:hover::after {
+    display: none;
 }
 .ul-item{
     margin-right: 30px;
@@ -28,7 +60,7 @@
 ul li{
     display: inline-block;
     margin-top: 3%;
-    font-size: 22px;
+    font-size: clamp(0.8rem, 5vw, 1.2rem);
 }
 .logo img{
        width: 150px;
@@ -39,35 +71,61 @@ li a{
     color: #3166B0;
 }
 .dropdown{
-    padding: 10px;
-    margin-left: 10px;   
+    padding: 10px 20px;
+    margin-left: 10px; 
+    position: relative;
+    /*made the position relative so i can declear absolute on the dropdown-icon container*/
 }
-select:hover{
-    border: 2px solid #3166B0;
+
+.dropdown:hover .dropdown-icon{
+    color:#3166B0;
+    transition: 1s;
+}
+
+.dropdown-icon{
+    position: absolute;
+    top: 25px;
+    right: 32px;
+    color: white;
+}
+
+.dropdown:hover select{
+    transition: 1s;
     background-color: transparent;
-    color: #3166B0;
+    color:#3166B0;
+    /*applied the color styling so when you hover the parent container .dropdown  the color styling will change*/
 }
 select{
-    padding: 10px 10px;
+    outline: 2px solid #3166B0;
+/*changed the border to outline... when clicked, active is activated hence activating outline instead of border*/
+    color: white;
+    padding: 10px 15px;
     background-color: #3166B0;
     border: none;
-    color: white;
     border-radius: 5px;
     font-size: 22px;
+    -webkit-appearance: none;
 }
+
 .login{
     color:#3166B0 ;
 }
 .btn{
     background-color: #3166B0;
-    padding: 10px;
+    padding: 10px 20px;/*added more padding to the side of your button*/
     border-radius: 5px;
     color: white;
+    border: 2px solid #3166B0;
+    /*add transitions on all your buttons to create a smoother hover effect*/
+    transition: 1s;
+
 }
 .btn:hover{
-    border: 2px solid #3166B0;
+    border: 2px solid #3166B0;/*Always add border to your hover so it doesnt shift the elements when you hover over the buttons*/
     background-color: transparent;
     color: #3166B0;
+    /*dont always rely on the a tag's default styling for cursor pointer, always style your buttons to have pointers as cursor so the whole button shows cursor when hovered*/
+    cursor: pointer;
 }
 
 /* hero section */
@@ -78,12 +136,13 @@ select{
     margin-top: 5%;
 }
 .left-side h1{
-    font-size: 75px;
+    font-size: clamp(2rem, 5vw, 4.3rem);
 }
 .left-side p{
     margin-bottom: 1%;
     margin-top: 2%;
-    font-size: 20px;
+    font-size: clamp(0.8rem, 5vw, 1.3rem);
+
     word-spacing: 5px;
     line-height: 1.3;
 }
@@ -101,43 +160,51 @@ select{
     display:flex;
 }
 .btnn{
-    border: 2px;
-    padding: 20px 30px;
+    /* border: 2px;  apply border and type of line for your buttons*/
+    border: 3px solid #3166B0; 
+    padding: 10px 20px;
     margin-right: 10px;
     font-size: 22px;
+    font-size: clamp(0.8rem, 5vw, 1.2rem);
     margin-top: 5%;
     background-color: #3166B0 ;
     border-radius: 5px;
-    
-}
-.btnn a{
+    /*style the color of your button text on your buttons rather than on the a element*/
     color: white;
+    /*add transitions on all your buttons to create a smoother hover effect*/
+    transition: 1s;
 }
+/* .btnn a{
+    color: white;
+} 
+you dont need this*/
 
 .btnn1{
     border: 2px solid #3166B0 ;
-    padding: 20px 30px;
+    padding: 10px 20px;
     margin-top: 5%;
-    font-size: 22px;
+    font-size: clamp(0.8rem, 5vw, 1.2rem);
     border-radius: 5px;
     color: #3166B0 ;
+    /*add transitions on all your buttons to create a smoother hover effect*/
+    transition: 1s;
 }
-.btnn1 a:hover{
-    color: white;
-}
+
 .btnn1:hover{
-    border: 3px solid;
+    border: 2px solid #3166B0; /*Always add border to your hover so it doesnt shift the elements when you hover over the buttons*/
     background-color: #3166B0 ;
     color: white;
+    /*dont always rely on the a tag's default styling for cursor pointer, always style your buttons to have pointers as cursor so the whole button shows cursor when hovered*/
+    cursor: pointer;
 }
-.btnn a:hover{
-    color: #3166B0;
-}
+
 
 .btnn:hover{
     border: 3px solid #3166B0 ;
     background-color: transparent;
     color: #3166B0 ;
+    /*dont always rely on the a tag's default styling for cursor pointer, always style your buttons to have pointers as cursor so the whole button shows cursor when hovered*/
+    cursor: pointer;
 }
 
 /* work styling */
@@ -392,6 +459,11 @@ border-radius: 5px;
     display: none;
 }
 
+.fa-circle-chevron-down{
+    display: contents;
+    /* color: white; */
+}
+
 /* footer styling */
 .footer-flex{
     display: flex;
@@ -426,22 +498,36 @@ border-radius: 5px;
         }
 
         ul{
-            height: 40vh;
-            width: 40%;
+            height: 100vh;
+            width: 50%;
             text-align: center;
-            position: absolute;
+            position: fixed;
             top: 0;
             right: 0;
             z-index: 2;
             line-height: 1.6;
             background-color: lavender;
+            padding-top: 20px;
+            /* transition: 2s; */
         }
+
+        ul#menu-icon li:nth-child(4){
+            margin-bottom: 20px;
+        }
+
     .fa-solid {
         color: #3166B0;
+        cursor: pointer;
+    }
+    .fa-circle-chevron-down{
+        color: inherit;
     }
     .fa-xmark{
+        position: absolute;
         font-size: 25px;
-        padding: 50px;
+        top: 32px;
+        left: 25px;
+        /* padding: 50px; */
     }
     .far-btn{
         display: block;
@@ -452,9 +538,11 @@ border-radius: 5px;
         font-size: 20px;
         color: #3166B0;
         position: absolute;
-        right: 0;
-        top: 5%;
-        cursor: pointer;
+        right: 10px;
+        top: 40px;
+    }
+    #menu-icon{
+        margin: 0;
     }
     .hero-section{
         display: inline-block;
