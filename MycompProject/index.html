@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/7cf4fe4e3b.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <link rel="icon" href="/images/LOGO (1).png">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,400;0,700;1,800&display=swap" rel="stylesheet">
+<link rel="icon" href="images/LOGO (1).png">
+ <link rel="stylesheet" href="css/style.css">
     
     <title>Final project</title>
 
@@ -18,7 +21,11 @@
             $('#open-menu').click(function(){
                 //open menu
             $('#menu-icon').show();
-    
+            a('#open-menu').next().css({
+            left       : c,
+            transition : 'opacity 1s ease-in-out'
+    });
+
             });
     
             $('#close-menu').click(function(){
@@ -27,6 +34,8 @@
     
             })
         })
+
+    
     
     
         </script>
@@ -37,7 +46,7 @@
             <div class="logo-box">
             <div class="logo-item">
                 <div class="logo">
-                    <img src="/images/LOGO (1).png" alt="">
+                    <img src="images/LOGO (1).png" alt="">
                 </div>
                 <div class="dropdown">
                     <label for="menu">
@@ -48,6 +57,7 @@
                             <option value="uiux">UI&UX</option>
                         </select>
                     </label>
+                    <div class="dropdown-icon"><i class="fa-solid fa-circle-chevron-down"></i></div>
                   </div>
                 
             </div>
@@ -74,21 +84,22 @@
                     and companies
                 </p>
                     <div class="btn-box">
-                        <div class="btnn"><li><a href="#">Join For Free</a> </li></div>
-                        <div class="btnn1"><li><a href="#">Try Cousera for Business</a> </li> </div> 
+                        <!-- avoid putting your links in an li tag if its not a list of menu... it will make styling much harder for you -->
+                        <div class="btnn"><a href="#">Join For Free</a></div>
+                        <div class="btnn1"><a href="#">Try Cousera for Business</a></div> 
                     </div>
                 
             </div>
         
         <div class="right-side">
-            <img src="/images/img2-removebg-preview.png" alt="">
+            <img src="images/img2-removebg-preview.png" alt="">
         </div>
         </div>
         <div class="work-container">
         <h1>Why Skyline Ict Works</h1>
         <div class="work-flex">
             <div class="work-items">
-                <img src="/images/personalized_learning_icon.png" alt="">
+                <img src="images/personalized_learning_icon.png" alt="">
                 <h2>Personalized learning</h2>
                 <p>Students practice at their own pace, first <br>
                     filling in gaps in their understanding and <br>
@@ -96,14 +107,14 @@
                 </p>
             </div>
             <div class="work-items">
-                <img src="/images/trusted_content_icon.png" alt="">
+                <img src="images/trusted_content_icon.png" alt="">
                 <h2>Tools to empower teachers</h2>
                 <p>With Skyline Learning, teachers can identify <br> 
                     gaps in their students, understanding, tailor <br> 
                     instruction, and meet the needs of every student</p>
             </div>
             <div class="work-items">
-                <img src="/images/empower_teachers_icon.png" alt="">
+                <img src="images/empower_teachers_icon.png" alt="">
                 <h2>Tools to empower teachers</h2>
                 <p>With Skyline Learning, teachers can identify <br> 
                     gaps in their students, understanding, tailor <br> 
@@ -124,11 +135,11 @@
           <li> <a href="#" class="btnl">Learners, Start Here</a></li>
         </div>
         <div class="learn-right">
-            <img src="/images/px.png" alt="">
+            <img src="images/px.png" alt="">
         </div>
         </div>
         <div class="plan-flex">
-        <div><img src="/images/Lady.png" alt=""></div>
+        <div><img src="images/Lady.png" alt=""></div>
         <div class="the-plan"><h3>THE PLAN</h3>
             <p>We priortize objectives, remain
                 competitive, and optimize financial 
@@ -139,7 +150,7 @@
 
                 <li> <a href="#">OUR PLAN</a></li>
         </div>
-        <div><img src="/images/man.png" alt=""></div>
+        <div><img src="images/man.png" alt=""></div>
         <div class="innovation"><h3>INNOVATE</h3>
             <p>As a leading legal service provider, we 
                 are client-centric with a future- 
@@ -152,7 +163,7 @@
         </div> 
         <div class="vision-flex">
             <div class="right-img">
-            <img src="/images/1.png" alt="">
+            <img src="images/1.png" alt="">
             </div>
             <div class="left-text">
             <h1>Our Vision is very <br>
