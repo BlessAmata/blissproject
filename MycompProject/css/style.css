@@ -99,6 +99,7 @@ li a{
 }
 select{
     outline: 2px solid #3166B0;
+    -moz-outline-radius: 5px;
     margin: 10px 20px;
 
 /*changed the border to outline... when clicked, active is activated hence activating outline instead of border*/
