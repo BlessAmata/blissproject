@@ -4,9 +4,16 @@
     padding: 0;
     list-style-type: none;
     text-decoration: none;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Shantell Sans', cursive;
     /* #3166B0 */
+    scroll-behavior: smooth;
 }
+
+a {
+    color: inherit;
+    /*changed the link tag font color to inherit to prevent it being on the visited state or the original link color*/
+}
+
 .header-cont{
     width: 100%;
 }
@@ -21,17 +28,45 @@
 }
 #menu-icon{
     margin-right: 3%;
+    /* flex: 1; */
 }
+
+ul#menu-icon li a{
+    position: relative;
+}
+
+ul#menu-icon li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 3px;
+    bottom: 5px;
+    left: 0;
+    background-color: #3166B0;
+    transform-origin: bottom center;
+    transition: transform 0.5s ease-out;
+}
+
+ul#menu-icon li a:hover::after{
+    transform: scaleX(1);
+    transform-origin: bottom center;
+}
+ul#menu-icon li a.btn:hover::after {
+    display: none;
+}
+
 .ul-item{
     margin-right: 30px;
 }
 ul li{
     display: inline-block;
     margin-top: 3%;
-    font-size: 22px;
+    font-size: clamp(0.8rem, 5vw, 1.2rem);
 }
 .logo img{
-       width: 150px;
+       width: clamp(7rem, 25vw, 9.375rem);
+       /* width: 150px; */
        margin-top: 3%;
 }
 li a{
@@ -39,35 +74,76 @@ li a{
     color: #3166B0;
 }
 .dropdown{
-    padding: 10px;
-    margin-left: 10px;   
-}
-select:hover{
+    margin: 10px 15px; 
+    position: relative;
+    /*made the position relative so i can declear absolute on the dropdown-icon container*/
+    width: auto;
     border: 2px solid #3166B0;
+    box-shadow: 3px 5px 5px #888888;
+    background-color: #3166B0;
+    border-radius: 5px;
+    color: white;
+    height: 50px;
+    transition: 1s;
+}
+
+.dropdown:hover .dropdown-icon{
+    color:#3166B0;
+}
+
+.dropdown-icon{
+    position: absolute;
+    top: 13px;
+    right: 15px;
+    color: white;
+    transition: 1s;
+}
+
+.dropdown:hover {
+    transition: 1s;
     background-color: transparent;
-    color: #3166B0;
+    color:#3166B0;
+    /*applied the color styling so when you hover the parent container .dropdown  the color styling will change*/
 }
 select{
-    padding: 10px 10px;
-    background-color: #3166B0;
+    outline: none;
+    margin: 0px 25px 0 5px;
+    color: inherit;
+/*changed the border to outline... when clicked, active is activated hence activating outline instead of border*/
+    padding: 10px 15px;
+    background-color: transparent;
     border: none;
-    color: white;
-    border-radius: 5px;
-    font-size: 22px;
+    top: 0;
+    left: 0;
+    display: block;
+    width: auto;
+    height: 100%;
+    font-size: clamp(0.8rem, 5vw, 1.2rem);
+    -webkit-appearance: none;
+    cursor: pointer;
+
 }
+
 .login{
     color:#3166B0 ;
 }
 .btn{
     background-color: #3166B0;
-    padding: 10px;
+    padding: 10px 20px;/*added more padding to the side of your button*/
     border-radius: 5px;
     color: white;
+    border: 2px solid #3166B0;
+    /*add transitions on all your buttons to create a smoother hover effect*/
+    transition: 1s;
+    box-shadow: 3px 5px 5px #888888;
+
 }
 .btn:hover{
-    border: 2px solid #3166B0;
+    border: 2px solid #3166B0;/*Always add border to your hover so it doesnt shift the elements when you hover over the buttons*/
     background-color: transparent;
     color: #3166B0;
+    /*dont always rely on the a tag's default styling for cursor pointer, always style your buttons to have pointers as cursor so the whole button shows cursor when hovered*/
+    cursor: pointer;
 }
 
 /* hero section */
@@ -78,12 +154,13 @@ select{
     margin-top: 5%;
 }
 .left-side h1{
-    font-size: 75px;
+    font-size: clamp(2.5rem, 5vw, 4.3rem);
 }
 .left-side p{
     margin-bottom: 1%;
     margin-top: 2%;
-    font-size: 20px;
+    font-size: clamp(0.8rem, 5vw, 1.3rem);
+
     word-spacing: 5px;
     line-height: 1.3;
 }
@@ -91,7 +168,7 @@ select{
     margin-left: 8%;
 }
 .right-side img{
-    width: 500px;
+    width: clamp(280px, 50vw, 500px);
 }
 .left-side{
     margin-left: 8%;
@@ -101,56 +178,67 @@ select{
     display:flex;
 }
 .btnn{
-    border: 2px;
-    padding: 20px 30px;
+    /* border: 2px;  apply border and type of line for your buttons*/
+    border: 3px solid #3166B0; 
+    padding: 10px 20px;
     margin-right: 10px;
-    font-size: 22px;
+    font-size: clamp(0.8rem, 5vw, 1.2rem);
     margin-top: 5%;
     background-color: #3166B0 ;
     border-radius: 5px;
-    
-}
-.btnn a{
+    /*style the color of your button text on your buttons rather than on the a element*/
     color: white;
+    /*add transitions on all your buttons to create a smoother hover effect*/
+    transition: 1s;
+    box-shadow: 3px 5px 5px #888888;
+
 }
+/* .btnn a{
+    color: white;
+} 
+you dont need this*/
 
 .btnn1{
     border: 2px solid #3166B0 ;
-    padding: 20px 30px;
+    padding: 10px 20px;
     margin-top: 5%;
-    font-size: 22px;
+    font-size: clamp(0.8rem, 5vw, 1.2rem);
     border-radius: 5px;
     color: #3166B0 ;
+    /*add transitions on all your buttons to create a smoother hover effect*/
+    transition: 1s;
+    box-shadow: 3px 5px 5px #888888;
+
 }
-.btnn1 a:hover{
-    color: white;
-}
+
 .btnn1:hover{
-    border: 3px solid;
+    border: 2px solid #3166B0; /*Always add border to your hover so it doesnt shift the elements when you hover over the buttons*/
     background-color: #3166B0 ;
     color: white;
+    /*dont always rely on the a tag's default styling for cursor pointer, always style your buttons to have pointers as cursor so the whole button shows cursor when hovered*/
+    cursor: pointer;
 }
-.btnn a:hover{
-    color: #3166B0;
-}
+
 
 .btnn:hover{
     border: 3px solid #3166B0 ;
     background-color: transparent;
     color: #3166B0 ;
+    /*dont always rely on the a tag's default styling for cursor pointer, always style your buttons to have pointers as cursor so the whole button shows cursor when hovered*/
+    cursor: pointer;
 }
 
 /* work styling */
 .work-container h1{
     text-align: center;
-    font-size: 80px;
+    font-size: clamp(2.5rem, 5vw, 5rem);
     margin-bottom: 3%;
 }
 .work-flex{
     display: flex;
     justify-content: center;
     padding: 30px;
-    margin-left: 10px;
+    margin-left: 30px;
     
 }
 .work-container{
@@ -161,19 +249,21 @@ select{
 .work-items{
     padding-right:4%;
     margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .work-items h2{
     text-align: center;
-    font-size: 25px;
+    font-size: 1.5625rem;
 }
 .work-items p{
     text-align: center;
-    font-size: 18px;
+    font-size: clamp(0.8rem, 5vw, 1.3rem);
     margin-top: 20px;
 }
 .work-items img{
     height: 100px; 
-    margin-left: 40%; 
 }
 
 .master{
@@ -183,31 +273,38 @@ select{
     margin-top: 10px;
     width: 90%;
     margin-left: 5%;
-    position: relative;
     font-size: 30px;
-    height: 300px;
-    
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 3px 5px 5px #888888;
+
 }
 .master h2{
     padding-top: 45px;
     margin-bottom: 10%;
     justify-content: center;
+    font-size: clamp(2rem, 5vw, 3.525rem);
 }
 .gbtn{
     color: #3166B0 ;
     border: 2px;
+    border: 2px solid #3166B0 ;
     background-color: white;
     padding: 10px 20px;
-    position: absolute;
-    top: 200px;
-    right: 600px;
+    /* align-self: flex-end; */
     border-radius: 5px;
-    font-size: 22px;
+    font-size: clamp(0.8rem, 5vw, 1.2rem);
+    margin: 0 0 3rem;
+    transition: all 0.5s ease;
+    transform: scale(1);
+    cursor: pointer;
 }
 .gbtn:hover{
     border: 2px solid white;
     background-color: transparent;
-   
+    transform: scale(1.2) perspective(1px)
   
 }
 .gbtn a:hover{
@@ -223,7 +320,7 @@ select{
     margin-left: 15%;
 }
 .learn-right img{
-    width: 500px;
+    width: clamp(280px, 50vw, 500px);
 }
 .learn-right{
     margin-right: 10%;
@@ -233,57 +330,89 @@ h4{
     font-size: 15px;
     padding-bottom: 30px;
 }
+.learn-left {
+    min-width: 250px;
+}
 .learn-left h1 span{
     background-color: rgb(14, 217, 236);
 }
 .learn-left h1{
     margin-bottom: 30px;
-    font-size: 90px;
+    font-size: clamp(2.5rem, 5vw, 5.625rem);
 }
 .learn-left p{
     margin-bottom: 30px;
-    font-size: 22px;
+    font-size: clamp(0.8rem, 5vw, 1.2rem);
 }
 .btnl{
-    border: 2px;
+    border: 2px solid #3166B0 ;
     padding: 15px 20px;
     background-color: #3166B0 ;
     color: white;
-    font-size: 22px;
+    font-size: clamp(0.2rem, 5vw, 1.2rem);
     border-radius: 5px;
+    transition: 1s;
 }
 .btnl:hover{
     border: 2px solid #3166B0 ;
     background-color: transparent;
     color:#3166B0 ;
+    cursor: pointer;
+}
+.btnl a {
+    color: white;
+    transition: 1s;
+}
+
+.btnl:hover a {
+    color: #3166B0;
+    
 }
 
 
 /* plan style */
 .plan-flex{
-    display: flex;
+    display: grid;
+    /* grid-template-columns: 1fr; */
+    gap: 150px;
     margin-left:5%;
     margin-top: 5%;
     width: 90%;
+    position: relative;
+}
+.plan-flex .img-1 {
+    position: absolute;
+    left: 10px;
+    top: -5px;
+}
 
+.plan-flex .img-2 {
+    position: absolute;
+    top: 500px;
+    right: 10px;
 }
 .plan-flex img{
-    width: 350px;
+    width: clamp(100px, 30vw, 300px);
     height: 100%;
+    border-radius: 50%;
+    
 }
 .the-plan{
     background-color: rgb(174, 152, 7);
-    height: 100hv;
-    width: 500px;
+    /* height: 100hv; */
+    /* width: 500px; */
     color: white;
-    text-align:left;
-    padding: 25px 25px; 
+    /* text-align:left; */
+    padding: 25px 25px 50px 100px; 
+    margin: 100px 320px 0 200px;
+    box-shadow: 3px 5px 5px #888888;
+    min-width: 500px;
 }
 .the-plan p{
     margin-top: 30px;
     margin-left:10px;
     margin-bottom: 40px;
-    font-size: 21px;
+    font-size: clamp(0.8rem, 5vw, 1.2rem);
     word-spacing: 1.6;
     padding-left: 10px;
     padding-right:10px;
@@ -302,28 +431,35 @@ h3{
     border: 2px solid white;
     border-radius: 5px;
     color: white;
-    padding: 10px 10px;
-    width: auto;
+    padding: 10px 15px;
+    /* width: auto; */
 }
 .the-plan li a:hover{
     background-color: white;
     color:rgb(174, 152, 7); ;
-    border: none;
+    border: 2px solid white;
+    transition: 1s;
 }
 
 .innovation{
     background-color: rgb(12, 12, 9);
-    height: 100hv;
-    width: 500px;
+    /* height: 100hv; */
+    /* width: 500px; */
+    margin: 0 200px 0 320px;
+    padding: 25px 125px 50px 25px; 
     color: white;
     text-align:left;
-    padding: 25px 25px; 
+    display: flex;
+    flex-direction: column;
+    /* padding: 25px 25px;  */
+    box-shadow: -3px 5px 5px #888888;
+    min-width: 500px;
 }
 .innovation p{
     margin-top: 30px;
     margin-left:10px;
     margin-bottom: 40px;
-    font-size: 21px;
+    font-size: clamp(0.8rem, 5vw, 1.2rem);
     word-spacing: 1.6;
     text-align: justify;
     padding-left: 10px;
@@ -341,7 +477,8 @@ h3{
 .innovation li a:hover{
     background-color: white;
     color:rgb(9, 8, 3); ;
-    border: none;
+    border: 2px solid white;
+    transition: 1s;
 }
 
 /* vision styling */
@@ -351,45 +488,38 @@ h3{
     justify-content: center;
 }
 .vision-flex img{
-    width: 500px;
+    width: clamp(280px, 50vw, 500px);
 }
 .left-text{
     margin-left: 2%;
     padding-top: 20px;
 }
 .left-text h1{
-    font-size: 50px;
+    font-size: clamp(2.5rem, 5vw, 3.125rem);
 }
 .left-text p{
     padding-top: 20px;
     padding-bottom: 20px;
     margin-bottom: 10px;
-    font-size: 22px;
-    font-size: 20px;
+    font-size: clamp(0.8rem, 5vw, 1.2rem);
 }
-.left-text li a{
- border: 2px;
- font-size: 22px;
- padding: 10px 40px;
- background-color: #3166B0;
- color: white;
-border-radius: 5px;
-}
+
 .left-text li{
     display: inline-block;
 }
 
-.left-text li a:hover{
-    background-color: transparent;
-    color: #3166B0;
-    border: 2px solid #3166B0;
-}
+
 .right-img{
     margin-right: 2%;
 }
 /* for navicon */
 .fa-solid {
     display: none;
+}
+
+.fa-circle-chevron-down{
+    display: contents;
+    /* color: white; */
 }
 
 /* footer styling */
@@ -405,14 +535,15 @@ border-radius: 5px;
     margin: 40px 25px;
     padding: 20px;
     text-align: center;
+    min-width: 300px;
 }
 
 .footer-item h4{
-    font-size: 30px;
+    font-size: clamp(1.5rem, 5vw, 2.18rem);
     color: #3166B0;
 }
 .footer-item p{
-    font-size: 18px;
+    font-size: clamp(0.8rem, 5vw, 1.2rem);
 }
 
 @media screen and (max-width:700px) {
@@ -426,22 +557,36 @@ border-radius: 5px;
         }
 
         ul{
-            height: 40vh;
-            width: 40%;
+            height: 100vh;
+            width: 50%;
             text-align: center;
-            position: absolute;
+            position: fixed;
             top: 0;
             right: 0;
             z-index: 2;
             line-height: 1.6;
             background-color: lavender;
+            padding-top: 20px;
+            /* transition: 2s; */
         }
+
+        ul#menu-icon li:nth-child(4){
+            margin-bottom: 20px;
+        }
+
     .fa-solid {
         color: #3166B0;
+        cursor: pointer;
+    }
+    .fa-circle-chevron-down{
+        color: inherit;
     }
     .fa-xmark{
+        position: absolute;
         font-size: 25px;
-        padding: 50px;
+        top: 32px;
+        left: 25px;
+        /* padding: 50px; */
     }
     .far-btn{
         display: block;
@@ -452,101 +597,116 @@ border-radius: 5px;
         font-size: 20px;
         color: #3166B0;
         position: absolute;
-        right: 0;
-        top: 5%;
-        cursor: pointer;
+        right: 10px;
+        top: 40px;
+    }
+    #menu-icon{
+        margin: 0;
     }
     .hero-section{
-        display: inline-block;
+        flex-direction: column;
         text-align: center;
+        justify-content: center;
+        width: 100%;
+        padding: 0 3.125rem;
     }
-    .left-side h1{
-        font-size: 60px;
+    .left-side {
+        margin-left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     .left-side p{
-        font-size: 22px;
         padding: 20px;
+    }
+    .right-side {
+        margin-left: 0;
     }
     .btn-box{
         display: inline-block;
     }
     .btnn1{
-        font-size: 25px;
+        font-size: clamp(0.8rem, 5vw, 1.2rem);
+        width: max(300px, 30vw);
     }
     .btnn{
-        font-size: 25px;
+        font-size: clamp(0.8rem, 5vw, 1.2rem);
+        width: max(300px, 30vw);
+    }
+    .work-flex {
+        margin-left: 0px;
     }
     .work-container{
         text-align: center;
     }
     .work-container h1{
-        font-size: 50px;
         color: #3166B0;
     }
     .work-flex{
         display: inline-block;
         text-align: center;
     }
-    .work-items img{
-        margin-right: 30%;
-    }
     .work-items h2{
-        font-size: 35px;
+        font-size: 1.8rem;
         color: #3166B0;
     }
     .work-items p{
         text-align: center;
-        font-size: 25px;
     }
 .master{
     position: relative;
 }
- .master li{
-        position: absolute;
-        right: 190px;
-        margin-top: 5%;
-    }
     .gbtn:hover{
-        border: none;
+        border: 2px solid rgb(160, 160, 239);
         background-color: rgb(160, 160, 239);
-    }
-    .gbtn a:hover{
         color: white;
+    }
+    .gbtn:hover a{
+        color: inherit;
     }
     .learn-flex{
         display: inline-block;
        text-align: center;
-       margin-top: 10%;
+       margin: 10% 0;
+       width: 100%;
+       margin-left: 0;
     }
     .learn-left{
         margin-bottom: 20%;
     }
-    .learn-left h1{
-        font-size: 60px;
-    }
     .learn-left p{
-        font-size: 25px;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding: 0 10px 20px 10px;
+    }
+    .learn-right{
+        margin: 0;
     }
     .plan-flex{
         display: inline-block;
         text-align: center;
         margin-top: 15%;
     }
-    .the-plan{
-        width: 346px;
-        margin-left: 19%;
+    .plan-flex .img-1 {
+        left: 50px;
+        top: -80px;
     }
-    .the-plan p{
-        font-size: 20px;
+    .plan-flex .img-2 {
+        top: 510px;
+        right: 350px;
+    }
+    .the-plan{
+        min-width: 346px;
+        margin: 0 0 200px;
+        padding: 100px  25px 40px 25px;
     }
     .the-plan li{
      margin-bottom: 3%;
     }
     .innovation{
-        width: 347px;
-        margin-left: 18%;
+        min-width: 346px;
+        margin: 0;
+        box-shadow: 3px 5px 5px #888888;
+        padding: 100px  25px 40px 25px;
+        text-align: center;
     }
     .innovation li{
         margin-bottom: 3%;
@@ -556,11 +716,7 @@ border-radius: 5px;
         margin-top: 15%;
         text-align: center;
     }
-    .left-text h1{
-        font-size: 45px;
-    }
     .left-text p{
-        font-size: 25px;
         padding-left: 20px;
         padding-right: 20px;
     }
@@ -571,10 +727,80 @@ border-radius: 5px;
         text-align: center;
         padding-top: 5px;
     }
-    .footer-item h4{
-        font-size: 35px;
+}
+
+@media screen and (max-width:430px) {
+    .logo img {
+        margin-top: 10px;
     }
-    .footer-item p{
-        font-size: 22px;
+    .logo-item {
+        margin-left: 10px;
     }
+    .fa-bars{
+        right: 15px;
+        top: 35px;
+    }
+    ul{
+        width: 100%;
+    }
+    .hero-section {
+        padding: 0;
+    }
+    .master {
+        min-height: auto;
+        border-radius: 5px;
+    }
+    .learn-flex {
+        margin: 40px 0 0 0;
+    }
+    .plan-flex img {
+        display: none;
+    }
+    .the-plan {
+        padding: 20px 40px;
+        margin: 0 0 100px 0;
+        border-radius: 5px;
+        min-width: auto;
+    }
+    .the-plan h3 {
+        margin: 0 0 10px 0;
+        padding: 0;
+    }
+    .the-plan p {
+        padding: 0;
+        margin: 0 0 40px 0;
+    }
+    .the-plan li a {
+        margin: 0;
+    }
+
+    .innovation {
+        padding: 20px 40px;
+        margin: 0 0 50px 0;
+        border-radius: 5px;
+        min-width: auto;
+    }
+    .innovation h3 {
+        margin: 0 0 10px 0;
+        padding: 0;
+    }
+    .innovation p {
+        padding: 0;
+        margin: 0 0 40px 0;
+    }
+    .innovation li a {
+        margin: 0;
+    }
+    .vision-flex {
+        margin: 0;
+    }
+    .left-text li {
+        display: block;
+        width: auto;
+        margin: 0 20px 15px 20px;
+    }
+}
+
+@media screen and (max-width:375px) {
+    
 }
